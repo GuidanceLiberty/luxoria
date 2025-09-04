@@ -1,0 +1,43 @@
+// src/data/nigeriaStates.js
+
+const nigeriaStates = {
+  "Abia": ["Aba", "Umuahia", "Ohafia", "Arochukwu"],
+  "Adamawa": ["Yola", "Mubi", "Jimeta", "Numan"],
+  "Akwa Ibom": ["Uyo", "Eket", "Ikot Ekpene", "Oron"],
+  "Anambra": ["Awka", "Onitsha", "Nnewi", "Ekwulobia"],
+  "Bauchi": ["Bauchi", "Azare", "Misau", "Jama’are"],
+  "Bayelsa": ["Yenagoa", "Brass", "Ogbia", "Sagbama"],
+  "Benue": ["Makurdi", "Otukpo", "Gboko", "Katsina-Ala"],
+  "Borno": ["Maiduguri", "Biu", "Monguno", "Dikwa"],
+  "Cross River": ["Calabar", "Ogoja", "Ikom", "Obudu"],
+  "Delta": ["Asaba", "Warri", "Sapele", "Agbor"],
+  "Ebonyi": ["Abakaliki", "Afikpo", "Onueke"],
+  "Edo": ["Benin City", "Auchi", "Ekpoma", "Uromi"],
+  "Ekiti": ["Ado-Ekiti", "Ikere", "Omuo", "Ise"],
+  "Enugu": ["Enugu", "Nsukka", "Awgu", "Oji River"],
+  "FCT": ["Abuja", "Kuje", "Bwari", "Gwagwalada"],
+  "Gombe": ["Gombe", "Dukku", "Kaltungo", "Deba"],
+  "Imo": ["Owerri", "Orlu", "Okigwe", "Mbaise"],
+  "Jigawa": ["Dutse", "Hadejia", "Kazaure", "Gumel"],
+  "Kaduna": ["Kaduna", "Zaria", "Kafanchan", "Sabon Gari"],
+  "Kano": ["Kano", "Wudil", "Gwarzo", "Bichi"],
+  "Katsina": ["Katsina", "Daura", "Funtua", "Malumfashi"],
+  "Kebbi": ["Birnin Kebbi", "Argungu", "Zuru", "Yauri"],
+  "Kogi": ["Lokoja", "Okene", "Idah", "Kabba"],
+  "Kwara": ["Ilorin", "Offa", "Jebba", "Omu-Aran"],
+  "Lagos": ["Ikeja", "Epe", "Ikorodu", "Badagry", "Lekki", "Ajah", "Surulere"],
+  "Nasarawa": ["Lafia", "Keffi", "Akwanga", "Nasarawa"],
+  "Niger": ["Minna", "Bida", "Kontagora", "Suleja"],
+  "Ogun": ["Abeokuta", "Ijebu-Ode", "Sagamu", "Ota"],
+  "Ondo": ["Akure", "Ondo", "Owo", "Ikare"],
+  "Osun": ["Osogbo", "Ife", "Ilesa", "Ikirun"],
+  "Oyo": ["Ibadan", "Ogbomosho", "Oyo", "Saki"],
+  "Plateau": ["Jos", "Pankshin", "Shendam", "Barkin Ladi"],
+  "Rivers": ["Port Harcourt", "Bonny", "Bori", "Omoku"],
+  "Sokoto": ["Sokoto", "Tambuwal", "Wurno", "Isa"],
+  "Taraba": ["Jalingo", "Wukari", "Bali", "Takum"],
+  "Yobe": ["Damaturu", "Potiskum", "Nguru", "Geidam"],
+  "Zamfara": ["Gusau", "Kaura Namoda", "Talata Mafara", "Anka"]
+};
+
+export default nigeriaStates;
