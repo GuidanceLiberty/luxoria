@@ -1,5 +1,5 @@
 import { Category } from "../models/Category.js";
-import { categorySchema } from "../schemas/index.js";
+import { categorySchema } from "../schemas/Index.js";
 import { ObjectId } from "mongodb";
 
 // ✅ Get all categories
