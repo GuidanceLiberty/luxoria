@@ -1,5 +1,5 @@
 import { User } from "../models/User.js";
-import { loginSchema, registerSchema } from "../schemas/index.js";
+import { loginSchema, registerSchema } from "../schemas/Index.js";
 import bcrypt from 'bcryptjs';
 import { generateTokenAndSetCookie } from "../utils/generateTokenAndSetCookie.js";
 import { ObjectId } from 'mongodb';
