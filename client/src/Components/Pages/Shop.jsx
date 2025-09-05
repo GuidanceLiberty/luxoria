@@ -4,6 +4,7 @@ import { Link, useNavigate, useLocation } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { FaPlus } from "react-icons/fa";
+import { useAuth } from "../../context/AuthContext";
 
 const Shop = () => {
   const [filterSortOption, setFilterSortOption] = useState("all");
@@ -13,9 +14,16 @@ const Shop = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
+  const { user } = useAuth();
+  // ✅ NEW: Log the user object to see what the component is receiving
+  console.log("Current user from useAuth:", user);
+  console.log(
+    "Current user from localStorage:",
+    JSON.parse(localStorage.getItem("user"))
+  );
+
   const API_URL = import.meta.env.VITE_BASE_URL;
 
-  // ✅ Show toast if message exists in navigation state
   useEffect(() => {
     if (location.state?.message) {
       toast.success(location.state.message);
@@ -72,35 +80,27 @@ const Shop = () => {
     }
   };
 
-  // ✅ Filtering + Sorting + Searching
   const handleFilterSort = () => {
     let filtered = [...products];
-
     if (filterSortOption === "New" || filterSortOption === "Sale") {
       filtered = filtered.filter((product) => product.tag === filterSortOption);
     }
-
     if (filterSortOption === "low") {
       filtered.sort((a, b) => parseFloat(a.price) - parseFloat(b.price));
     }
-
     if (filterSortOption === "high") {
       filtered.sort((a, b) => parseFloat(b.price) - parseFloat(a.price));
     }
-
-    // ✅ Search filter
     if (searchQuery.trim() !== "") {
       filtered = filtered.filter((product) =>
         product.name.toLowerCase().includes(searchQuery.toLowerCase())
       );
     }
-
     return filtered;
   };
 
   const displayedProducts = handleFilterSort();
 
-  // ✅ Fixed image helper for Cloudinary
   const getImageUrl = (path) => {
     if (!path) return "/images/placeholder.jpg";
     return path.startsWith("http")
@@ -123,17 +123,16 @@ const Shop = () => {
         <div className="container-fluid px-3 px-md-5">
           <div className="d-flex justify-content-between align-items-center flex-wrap gap-3">
             <h1 className="py-4 fw-semibold mb-0">Products</h1>
-
-            <button
-              className="btn btn-dark"
-              onClick={() => navigate("/create-product")}
-            >
-              <FaPlus className="me-2" />
-              Create Product
-            </button>
+            {user && user.role === "admin" && (
+              <button
+                className="btn btn-dark"
+                onClick={() => navigate("/create-product")}
+              >
+                <FaPlus className="me-2" />
+                Create Product
+              </button>
+            )}
           </div>
-
-          {/* ✅ Search + Sort row */}
           <div className="containr my-4">
             <div className="d-flex justify-content-between align-items-center flex-wrap gap-3">
               <div className="text-muted" style={{ fontSize: "1.1rem" }}>
@@ -151,8 +150,6 @@ const Shop = () => {
                   </>
                 )}
               </div>
-
-              {/* ✅ Search box */}
               <input
                 type="text"
                 placeholder="Search products..."
@@ -161,13 +158,11 @@ const Shop = () => {
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
               />
-
-              {/* ✅ Sort select */}
               <div className="d-inline-block">
                 <select
                   className="form-select py-2 fs-6"
                   style={{
-                    width: "auto", // 👈 shrink to fit text
+                    width: "auto",
                     display: "inline-block",
                     backgroundColor: "#f5f5f5",
                     border: "0px",
@@ -184,8 +179,6 @@ const Shop = () => {
               </div>
             </div>
           </div>
-
-          {/* ✅ Products grid */}
           <div className="row g-4">
             {loading ? (
               <p className="text-center">Loading...</p>
@@ -221,7 +214,6 @@ const Shop = () => {
                           }}
                         />
                       )}
-
                       <div className="product-icons gap-3 d-flex justify-content-center mt-2">
                         <Link
                           to={`/product/${product._id}`}
@@ -247,7 +239,6 @@ const Shop = () => {
                           <i className="bi bi-cart3 fs-5"></i>
                         </div>
                       </div>
-
                       {product.tag && (
                         <span
                           className={`tag badge text-white ${
@@ -258,7 +249,6 @@ const Shop = () => {
                         </span>
                       )}
                     </div>
-
                     <Link
                       to={`/product/${product._id}`}
                       className="text-decoration-none text-black"
@@ -288,7 +278,6 @@ const Shop = () => {
           </div>
         </div>
       </div>
-
       <ToastContainer position="top-right" autoClose={2000} />
     </>
   );
