@@ -83,7 +83,7 @@ const Index = () => {
     const fetchFavoriteProducts = async () => {
       try {
         setLoading(true);
-        const response = await fetch(`${API_URL}/products/`);
+        const response = await fetch(`${API_URL}/products`);
         const result = await response.json();
 
         if (result.success) {
@@ -116,7 +116,7 @@ const Index = () => {
     const fetchFeaturedProducts = async () => {
       try {
         setLoading(true);
-        const response = await fetch(`${API_URL}/products/`);
+        const response = await fetch(`${API_URL}/products`);
         const result = await response.json();
 
         if (result.success) {
@@ -146,7 +146,7 @@ const Index = () => {
     const fetchCategories = async () => {
       try {
         setLoadingCategories(true);
-        const response = await fetch(`${API_URL}/categories/`);
+        const response = await fetch(`${API_URL}/categories`);
         const result = await response.json();
 
         if (result.success) {

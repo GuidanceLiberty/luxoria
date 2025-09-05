@@ -26,7 +26,7 @@ const Shop = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await fetch(`${API_URL}/products/`);
+        const response = await fetch(`${API_URL}/products`);
         const result = await response.json();
 
         if (result.success) {
