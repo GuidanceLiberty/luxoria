@@ -81,7 +81,7 @@ const Nav = () => {
 
         {/* Mobile Icons */}
         <div className="d-flex d-lg-none align-items-center gap-3">
-          <a href="#" className="text-dark fs-5 bi bi-search"></a>
+          
           <div className="dropdown">
             <a
               className="text-dark fs-5 bi bi-person dropdown-toggle"
@@ -141,10 +141,6 @@ const Nav = () => {
               )}
             </ul>
           </div>
-          <Link
-            to="/create-product"
-            className="text-dark fs-5 bi bi-plus-square"
-          ></Link>
           <Link to="/wishlist" className="text-dark fs-5 position-relative">
             <i className="bi bi-heart"></i>
             <span className="position-absolute top-0 start-100 translate-middle cart-qount rounded-pill">
@@ -200,15 +196,13 @@ const Nav = () => {
           {/* Center Logo */}
           <Link to="/" className="navbar-brand order-0 d-none d-lg-flex">
             <h2 className="m-0 fw-bold" style={{ letterSpacing: "2px" }}>
-              BEAUTIFY
+              LUXORIA
             </h2>
           </Link>
 
           {/* Desktop Icons */}
           <ul className="navbar-nav d-none d-lg-flex align-items-center gap-4">
-            <li>
-              <Link to="/search" className="text-dark fs-5 bi bi-search"></Link>
-            </li>
+            
             <li className="dropdown">
               <a
                 className="text-dark fs-5 bi bi-person dropdown-toggle"
@@ -271,12 +265,7 @@ const Nav = () => {
                 )}
               </ul>
             </li>
-            <li>
-              <Link
-                to="/create-product"
-                className="text-dark fs-5 bi bi-plus-square"
-              ></Link>
-            </li>
+           
             <li className="position-relative">
               <Link to="/wishlist" className="text-dark fs-5">
                 <i className="bi bi-heart"></i>
