@@ -24,7 +24,6 @@ export const getProductsByCategory = async (req, res) => {
         select: "_id name description",
       })
       .sort({ createdAt: "desc" })
-      .limit(8)
       .exec();
 
     if (!products || products.length === 0) {
