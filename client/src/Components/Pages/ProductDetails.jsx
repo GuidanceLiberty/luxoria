@@ -4,10 +4,12 @@ import { Link, useParams, useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import { FaEdit, FaTrash } from "react-icons/fa";
 import "react-toastify/dist/ReactToastify.css";
+import { useAuth } from "../../context/AuthContext";
 
 const ProductDetails = () => {
   const { id } = useParams();
   const navigate = useNavigate();
+  const { user } = useAuth();
 
   const API_URL = import.meta.env.VITE_BASE_URL;
   const IMAGE_BASE = import.meta.env.VITE_IMAGE_URL;
@@ -156,6 +158,7 @@ const ProductDetails = () => {
               <h2 className="mb-3 fw-semibold">{product.name}</h2>
 
               {/* Edit / Delete */}
+              {user && user.role === 'admin' && (
               <div className="d-flex gap-2">
                 <button type="button" className="btn btn-outline-primary btn-sm d-flex align-items-center" onClick={handleEdit}>
                   <FaEdit className="me-2" />
@@ -166,6 +169,7 @@ const ProductDetails = () => {
                   Delete
                 </button>
               </div>
+              )}
             </div>
 
             <p className="mb-1 fw-semibold">Color: Black</p>

@@ -18,7 +18,7 @@ const NotFound = () => {
 
         <div className="d-flex justify-content-center align-items-center gap-2 text-secondary fs-6 mt-3">
           <RiArrowLeftLine />
-          <NavLink to={`/home`} className="text-decoration-none text-secondary hover-opacity">
+          <NavLink to={`/`} className="text-decoration-none text-secondary hover-opacity">
             Back to home
           </NavLink>
         </div>
