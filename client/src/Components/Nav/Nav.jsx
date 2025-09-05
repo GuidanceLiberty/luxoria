@@ -75,7 +75,7 @@ const Nav = () => {
         {/* Mobile Logo */}
         <Link to="/" className="navbar-brand mx-auto d-lg-none">
           <h2 className="m-0 fw-bold" style={{ letterSpacing: "2px" }}>
-            BEAUTIFY
+            LUXORIA
           </h2>
         </Link>
 
