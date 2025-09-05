@@ -3,7 +3,6 @@ import { RiLock2Line, RiMailLine } from '@remixicon/react';
 import { NavLink, useNavigate, useLocation } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { useFormik } from 'formik';
-import { useEffect, useRef } from 'react';
 import logo from "../../assets/store-02.webp";
 import bgImage from "../../assets/store-01.webp";
 import { loginSchema } from "../../schemas";
@@ -12,30 +11,7 @@ import { useAuth } from "../../context/AuthContext";
 const Login = () => {
   const URL = import.meta.env.VITE_BASE_URL;
   const navigate = useNavigate();
-  const location = useLocation();
   const { login } = useAuth();
-
-  // ✅ Hard refresh exactly once whenever /login is visited
-  const didRun = useRef(false);
-  useEffect(() => {
-    if (didRun.current) return;
-    didRun.current = true;
-
-    if (location.pathname === "/login") {
-      const params = new URLSearchParams(window.location.search);
-      if (!params.has("r")) {
-        // First visit -> add flag and force a full page load
-        params.set("r", "1");
-        const newUrl = `${window.location.pathname}?${params.toString()}${window.location.hash}`;
-        window.location.replace(newUrl); // full reload, no loop
-      } else {
-        // Reloaded with ?r=1 -> clean up the URL
-        params.delete("r");
-        const cleanUrl = `${window.location.pathname}${params.toString() ? `?${params.toString()}` : ""}${window.location.hash}`;
-        window.history.replaceState({}, "", cleanUrl);
-      }
-    }
-  }, [location.pathname]);
 
   const onSubmit = async (values, actions) => {
     try {
@@ -52,7 +28,6 @@ const Login = () => {
         return;
       }
 
-      // Store in AuthContext (and your context persists to localStorage)
       login(res.user);
       toast.success(res.message);
 
