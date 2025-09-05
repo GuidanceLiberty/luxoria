@@ -13,7 +13,10 @@ const Nav = () => {
   const updateCounts = () => {
     const cart = JSON.parse(localStorage.getItem("cart")) || [];
     const wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
-    const totalCartItems = cart.reduce((acc, item) => acc + (item.quantity || 1), 0);
+    const totalCartItems = cart.reduce(
+      (acc, item) => acc + (item.quantity || 1),
+      0
+    );
     setCartCount(totalCartItems);
     setWishlistCount(wishlist.length);
   };
@@ -38,16 +41,16 @@ const Nav = () => {
 
   const handleLogout = () => {
     toast.success("Logged out successfully!", {
+      onClose: () => {
+        logout();
+        navigate("/login"); 
+      },
       position: "top-right",
       autoClose: 2000,
       hideProgressBar: false,
       pauseOnHover: true,
       draggable: true,
       theme: "colored",
-      onClose: () => {
-        logout();
-        window.location.href = "/login";
-      },
     });
   };
 
@@ -71,7 +74,9 @@ const Nav = () => {
 
         {/* Mobile Logo */}
         <Link to="/" className="navbar-brand mx-auto d-lg-none">
-          <h2 className="m-0 fw-bold" style={{ letterSpacing: "2px" }}>BEAUTIFY</h2>
+          <h2 className="m-0 fw-bold" style={{ letterSpacing: "2px" }}>
+            BEAUTIFY
+          </h2>
         </Link>
 
         {/* Mobile Icons */}
@@ -86,27 +91,60 @@ const Nav = () => {
               data-bs-toggle="dropdown"
               aria-expanded="false"
             ></a>
-            <ul className="dropdown-menu dropdown-menu-end" aria-labelledby="mobileUserDropdown">
+            <ul
+              className="dropdown-menu dropdown-menu-end"
+              aria-labelledby="mobileUserDropdown"
+            >
               {user ? (
                 <>
-                  <li><Link className="dropdown-item" to={`/profile/${user._id}`}>Profile</Link></li>
+                  <li>
+                    <Link className="dropdown-item" to={`/profile/${user._id}`}>
+                      Profile
+                    </Link>
+                  </li>
                   {user.role === "admin" && (
                     <>
-                      <li><Link className="dropdown-item" to="/categories">Categories</Link></li>
-                      <li><Link className="dropdown-item" to="/manage-users">Manage Users</Link></li>
+                      <li>
+                        <Link className="dropdown-item" to="/categories">
+                          Categories
+                        </Link>
+                      </li>
+                      <li>
+                        <Link className="dropdown-item" to="/manage-users">
+                          Manage Users
+                        </Link>
+                      </li>
                     </>
                   )}
-                  <li><button className="dropdown-item text-danger" onClick={handleLogout}>Logout</button></li>
+                  <li>
+                    <button
+                      className="dropdown-item text-danger"
+                      onClick={handleLogout}
+                    >
+                      Logout
+                    </button>
+                  </li>
                 </>
               ) : (
                 <>
-                  <li><Link className="dropdown-item" to="/login">Login</Link></li>
-                  <li><Link className="dropdown-item" to="/register">Register</Link></li>
+                  <li>
+                    <Link className="dropdown-item" to="/login">
+                      Login
+                    </Link>
+                  </li>
+                  <li>
+                    <Link className="dropdown-item" to="/register">
+                      Register
+                    </Link>
+                  </li>
                 </>
               )}
             </ul>
           </div>
-          <Link to="/create-product" className="text-dark fs-5 bi bi-plus-square"></Link>
+          <Link
+            to="/create-product"
+            className="text-dark fs-5 bi bi-plus-square"
+          ></Link>
           <Link to="/wishlist" className="text-dark fs-5 position-relative">
             <i className="bi bi-heart"></i>
             <span className="position-absolute top-0 start-100 translate-middle cart-qount rounded-pill">
@@ -122,24 +160,55 @@ const Nav = () => {
         </div>
 
         {/* Desktop Nav */}
-        <div className="collapse navbar-collapse justify-content-between" id="navbarNav">
+        <div
+          className="collapse navbar-collapse justify-content-between"
+          id="navbarNav"
+        >
           <ul className="navbar-nav nav-menu align-items-center gap-4">
-            <li className="nav-item"><Link to="/" className="nav-link">Home</Link></li>
-            <li className="nav-item"><Link to="/about" className="nav-link">About</Link></li>
-            <li className="nav-item"><Link to="/shop" className="nav-link">Shop</Link></li>
-            <li className="nav-item"><Link to="/store" className="nav-link">Store</Link></li>
-            <li className="nav-item"><Link to="/blog" className="nav-link">Blog</Link></li>
-            <li className="nav-item"><Link to="/contact" className="nav-link">Contact</Link></li>
+            <li className="nav-item">
+              <Link to="/" className="nav-link">
+                Home
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link to="/about" className="nav-link">
+                About
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link to="/shop" className="nav-link">
+                Shop
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link to="/store" className="nav-link">
+                Store
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link to="/blog" className="nav-link">
+                Blog
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link to="/contact" className="nav-link">
+                Contact
+              </Link>
+            </li>
           </ul>
 
           {/* Center Logo */}
           <Link to="/" className="navbar-brand order-0 d-none d-lg-flex">
-            <h2 className="m-0 fw-bold" style={{ letterSpacing: "2px" }}>BEAUTIFY</h2>
+            <h2 className="m-0 fw-bold" style={{ letterSpacing: "2px" }}>
+              BEAUTIFY
+            </h2>
           </Link>
 
           {/* Desktop Icons */}
           <ul className="navbar-nav d-none d-lg-flex align-items-center gap-4">
-            <li><Link to="/search" className="text-dark fs-5 bi bi-search"></Link></li>
+            <li>
+              <Link to="/search" className="text-dark fs-5 bi bi-search"></Link>
+            </li>
             <li className="dropdown">
               <a
                 className="text-dark fs-5 bi bi-person dropdown-toggle"
@@ -149,37 +218,79 @@ const Nav = () => {
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
               ></a>
-              <ul className="dropdown-menu dropdown-menu-end" aria-labelledby="desktopUserDropdown">
+              <ul
+                className="dropdown-menu dropdown-menu-end"
+                aria-labelledby="desktopUserDropdown"
+              >
                 {user ? (
                   <>
-                    <li><Link className="dropdown-item" to={`/profile/${user._id}`}>Profile</Link></li>
+                    <li>
+                      <Link
+                        className="dropdown-item"
+                        to={`/profile/${user._id}`}
+                      >
+                        Profile
+                      </Link>
+                    </li>
                     {user.role === "admin" && (
                       <>
-                        <li><Link className="dropdown-item" to="/categories">Categories</Link></li>
-                        <li><Link className="dropdown-item" to="/manage-users">Manage Users</Link></li>
+                        <li>
+                          <Link className="dropdown-item" to="/categories">
+                            Categories
+                          </Link>
+                        </li>
+                        <li>
+                          <Link className="dropdown-item" to="/manage-users">
+                            Manage Users
+                          </Link>
+                        </li>
                       </>
                     )}
-                    <li><button className="dropdown-item text-danger" onClick={handleLogout}>Logout</button></li>
+                    <li>
+                      <button
+                        className="dropdown-item text-danger"
+                        onClick={handleLogout}
+                      >
+                        Logout
+                      </button>
+                    </li>
                   </>
                 ) : (
                   <>
-                    <li><Link className="dropdown-item" to="/login">Login</Link></li>
-                    <li><Link className="dropdown-item" to="/register">Register</Link></li>
+                    <li>
+                      <Link className="dropdown-item" to="/login">
+                        Login
+                      </Link>
+                    </li>
+                    <li>
+                      <Link className="dropdown-item" to="/register">
+                        Register
+                      </Link>
+                    </li>
                   </>
                 )}
               </ul>
             </li>
-            <li><Link to="/create-product" className="text-dark fs-5 bi bi-plus-square"></Link></li>
+            <li>
+              <Link
+                to="/create-product"
+                className="text-dark fs-5 bi bi-plus-square"
+              ></Link>
+            </li>
             <li className="position-relative">
               <Link to="/wishlist" className="text-dark fs-5">
                 <i className="bi bi-heart"></i>
-                <span className="position-absolute top-0 start-100 translate-middle cart-qount rounded-pill">{wishlistCount}</span>
+                <span className="position-absolute top-0 start-100 translate-middle cart-qount rounded-pill">
+                  {wishlistCount}
+                </span>
               </Link>
             </li>
             <li className="position-relative">
               <Link to="/cart" className="text-dark fs-5">
                 <i className="bi bi-bag"></i>
-                <span className="position-absolute top-0 start-100 translate-middle cart-qount rounded-pill">{cartCount}</span>
+                <span className="position-absolute top-0 start-100 translate-middle cart-qount rounded-pill">
+                  {cartCount}
+                </span>
               </Link>
             </li>
           </ul>
