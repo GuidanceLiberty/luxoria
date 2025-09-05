@@ -7,9 +7,8 @@ import Receipt from "./Receipt";
 import ShippingForm from "./ShippingForm";
 
 const IMAGE_BASE =
-  import.meta.env.VITE_IMAGE_URL ||
-  import.meta.env.VITE_API_URL?.replace("/api", "") ||
-  "http://localhost:6060";
+  import.meta.env.VITE_IMAGE_URL;
+  import.meta.env.VITE_BASE_URL?.replace("/api", "");
 
 const getImageUrl = (path) => {
   if (!path) return "/images/placeholder.jpg";

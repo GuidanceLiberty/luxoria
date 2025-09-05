@@ -30,7 +30,7 @@ import socialImage4 from "./../../assets/social-image-4.jpg";
 import socialImage5 from "./../../assets/social-image-5.jpg";
 
 const Index = () => {
-  const API_URL = import.meta.env.VITE_API_URL || "http://localhost:6060/api";
+  const API_URL = import.meta.env.VITE_BASE_URL;
 
    const [query, setQuery] = useState("");
   const [results, setResults] = useState([]);

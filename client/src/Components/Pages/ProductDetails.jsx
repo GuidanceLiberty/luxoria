@@ -9,8 +9,8 @@ const ProductDetails = () => {
   const { id } = useParams();
   const navigate = useNavigate();
 
-  const API_URL = import.meta.env.VITE_API_URL || ""; // e.g., http://localhost:6060/api
-  const IMAGE_BASE = import.meta.env.VITE_IMAGE_URL || ""; // Cloudinary base URL
+  const API_URL = import.meta.env.VITE_BASE_URL;
+  const IMAGE_BASE = import.meta.env.VITE_IMAGE_URL;
 
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);

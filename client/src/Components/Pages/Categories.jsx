@@ -11,7 +11,7 @@ const Categories = () => {
   const navigate = useNavigate();
   const [showCreateModal, setShowCreateModal] = useState(false);
 
-  const URL = import.meta.env.VITE_BASE_URL || "http://localhost:6060/api";
+  const URL = import.meta.env.VITE_BASE_URL;
   const fetcher = (...args) => fetch(...args).then((res) => res.json());
   const { data: categories, mutate } = useSWR(`${URL}/categories`, fetcher);
 

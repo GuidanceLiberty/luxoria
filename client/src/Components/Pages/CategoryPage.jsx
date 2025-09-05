@@ -6,7 +6,7 @@ import { ToastContainer, toast } from "react-toastify";
 const CategoryPage = () => {
   const { categoryName } = useParams();
   const navigate = useNavigate();
-  const API = import.meta.env.VITE_BASE_URL || "http://localhost:6060/api";
+  const API = import.meta.env.VITE_BASE_URL;
 
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -84,7 +84,7 @@ const CategoryPage = () => {
 
   const getImageUrl = (path) => {
     const API_URL =
-      import.meta.env.VITE_BASE_URL || "http://localhost:6060/api";
+      import.meta.env.VITE_BASE_URL;
     if (!path) return "/images/placeholder.jpg";
     return path.startsWith("http")
       ? path

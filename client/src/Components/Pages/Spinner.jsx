@@ -10,8 +10,8 @@ const Shop = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [filterSortOption, setFilterSortOption] = useState("all");
-  const API_URL = import.meta.env.VITE_API_URL || "http://localhost:6060/api";
-  const IMAGE_URL = import.meta.env.VITE_IMAGE_URL || "http://localhost:6060";
+  const API_URL = import.meta.env.VITE_BASE_URL 
+  const IMAGE_URL = import.meta.env.VITE_IMAGE_URL;
 
   // Function to fetch all products from the backend
   const fetchProducts = async () => {

@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-const API_URL = import.meta.env.VITE_API_URL || "http://localhost:6060/api";
+const API_URL = import.meta.env.VITE_BASE_URL;
 const IMAGE_BASE =
-  import.meta.env.VITE_IMAGE_URL || API_URL.replace("/api", "");
+  import.meta.env.VITE_IMAGE_URL;
 
 const getImageUrl = (path) => {
   if (!path) return "/images/placeholder.jpg";

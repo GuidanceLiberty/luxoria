@@ -13,7 +13,7 @@ const Shop = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const API_URL = import.meta.env.VITE_API_URL || "http://localhost:6060/api";
+  const API_URL = import.meta.env.VITE_BASE_URL;
 
   // ✅ Show toast if message exists in navigation state
   useEffect(() => {

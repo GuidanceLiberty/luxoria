@@ -7,7 +7,7 @@ const UpdateProduct = () => {
   const { product_id } = useParams();
   const navigate = useNavigate();
 
-  const API = import.meta.env.VITE_API_URL || "http://localhost:6060/api";
+  const API = import.meta.env.VITE_BASE_URL;
 
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);

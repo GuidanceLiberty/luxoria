@@ -8,7 +8,7 @@ import { categorySchema } from "../../schemas";
 import placeholder from "../../assets/placeholder.jpg";
 
 const EditCategory = () => {
-  const API_URL = import.meta.env.VITE_API_URL;
+  const API_URL = import.meta.env.VITE_BASE_URL;
   const navigate = useNavigate();
   const { category_id } = useParams();
   const user = JSON.parse(localStorage.getItem("userData"));

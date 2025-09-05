@@ -6,7 +6,7 @@ import { useNavigate, useLocation, Link } from "react-router-dom";
 const CreateProduct = ({ fetchProducts }) => {
   const navigate = useNavigate();
   const location = useLocation();
-  const API = import.meta.env.VITE_BASE_URL || "http://localhost:6060/api";
+  const API = import.meta.env.VITE_BASE_URL;
 
   const [formData, setFormData] = useState({
     name: "",

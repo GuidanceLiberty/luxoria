@@ -10,7 +10,7 @@ import { loginSchema } from "../../schemas";
 import { useAuth } from "../../context/AuthContext";
 
 const Login = () => {
-  const URL = import.meta.env.VITE_BASE_URL || "http://localhost:6060/api";
+  const URL = import.meta.env.VITE_BASE_URL;
   const navigate = useNavigate();
   const location = useLocation();
   const { login } = useAuth();

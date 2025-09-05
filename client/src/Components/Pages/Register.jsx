@@ -10,7 +10,7 @@ import { registerSchema } from '../../schemas';
 
 const Register = () => {
   const navigate = useNavigate();
-  const URL = import.meta.env.VITE_BASE_URL || "http://localhost:6060/api";
+  const URL = import.meta.env.VITE_BASE_URL;
 
   const onSubmit = async (values, actions) => {
     const answer = window.confirm('Are you sure you want to signup?');

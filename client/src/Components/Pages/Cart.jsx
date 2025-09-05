@@ -6,8 +6,8 @@ import "react-toastify/dist/ReactToastify.css";
 import { AiOutlineEye } from "react-icons/ai";
 
 // ✅ API + Image Base
-const API_URL = import.meta.env.VITE_API_URL || "http://localhost:6060/api";
-const IMAGE_BASE = import.meta.env.VITE_IMAGE_URL || API_URL.replace("/api", "");
+const API_URL = import.meta.env.VITE_BASE_URL;
+const IMAGE_BASE = import.meta.env.VITE_IMAGE_URL;
 
 // Helper to get full image URL
 const getImageUrl = (path) => {
