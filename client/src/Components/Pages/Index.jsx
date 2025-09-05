@@ -237,9 +237,9 @@ const Index = () => {
                   Made using clean, non-toxic ingredients, our products are
                   designed for everyone.
                 </p>
-                <a href="#" className="btn hero-btn mt-3">
-                  Shop Now
-                </a>
+                <Link to="/shop" className="btn hero-btn mt-3">
+                      Shop Now
+                </Link>
               </div>
             </div>
           </SwiperSlide>
@@ -252,9 +252,9 @@ const Index = () => {
                   Made using clean, non-toxic ingredients, our products are
                   designed for everyone.
                 </p>
-                <a href="#" className="btn hero-btn mt-3">
-                  Shop Now
-                </a>
+                <Link to="/shop" className="btn hero-btn mt-3">
+                      Shop Now
+                </Link>
               </div>
             </div>
           </SwiperSlide>
@@ -269,9 +269,9 @@ const Index = () => {
                   Made using clean, non-toxic ingredients, our products are
                   designed for everyone.
                 </p>
-                <a href="#" className="btn hero-btn mt-3">
-                  Shop Now
-                </a>
+                <Link to="/shop" className="btn hero-btn mt-3">
+                      Shop Now
+                </Link>
               </div>
             </div>
           </SwiperSlide>
